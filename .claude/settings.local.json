@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 install:*)",
+      "Bash(python3 copper.py list-opportunities)",
+      "Bash(python3 -c \":*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
