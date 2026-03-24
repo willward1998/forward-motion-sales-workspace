@@ -6,8 +6,8 @@
 - **What we do:** Custom orthotics lab serving podiatrist offices
 - **Who we serve:** Podiatrist offices (B2B — doctors are the clients, not patients)
 - **Staff:** CPed (Certified Pedorthist) and technicians with 40+ years of experience available for consultations
-- **Location:** [PLACEHOLDER — add lab location]
-- **Territory:** [PLACEHOLDER — states or regions Will covers]
+- **Location:** Washington, Utah. 914 South 100 East, Washington, UT 84780
+- **Territory:** I work remotely out of the Washington Facility and cover the following States. Arizona, Delaware, Hawaii, Illionis, Indiana, North Carolina, Rhode Island, Texas, Vermont, West Virgina.
 
 ---
 
@@ -116,14 +116,17 @@ Additional differentiators to add:
 
 | Issue | Who to Contact |
 |---|---|
-| Order problem / lab issue | [PLACEHOLDER] |
-| Billing / accounting | [PLACEHOLDER] |
-| Scanning / app technical support | [PLACEHOLDER] |
-| Remake or adjustment request | [PLACEHOLDER] |
-| General lab questions | [PLACEHOLDER] |
+| Order problem / lab issue | [Will or Tracy] |
+| Billing / accounting | [Will] |
+| Scanning / app technical support | [Will] |
+| Remake or adjustment request | [Tracy] |
+| General lab questions | [Will] |
 
 ---
 
 ## Other Team Members
 - **Nick:** Prefab rep — handles off-the-shelf orthotics (not Will's territory)
-- [PLACEHOLDER — any other team members to know]
+- **Helaman:** Alaska, Georgia, Kansas, Montana, Nebraska, New Hampshire, New Jersey, New York, Oklahoma, Oregon, Virgin Islands
+- **Dax:** Alabama, Florida, Idaho, Kentucky, Louisiana, Michigan, Nevada, New Mexico, North Dakota, Tennessee, Washington
+- **Grant:** Arkansas, California, DC, Maine, Maryland, Mississippi, Pennsylvania, South Carolina, South Dakota, Wyoming
+- **Dante:** Colorado, Connecticut, Iowa, Massachusetts, Minnesota, Missouri, Ohio, Utah, Virginia, Wisconsin
