@@ -1,7 +1,7 @@
 # References
 
 ## About the Business
-- We make custom orthotics for podiatrists (and off-the-shelf but it is managed by another rep, Nick, our prefab rep)
+- We make custom orthotics, AFO braces, and prefabricated orthotics for podiatrists
 - Our clients are podiatrist offices, not patients directly
 - Doctors care about: turnaround time, quality, ease of ordering, 
   and rep responsiveness
@@ -39,12 +39,12 @@ https://orthoticsportal.com/
 
 ## Notes
 -Forward Motion Medical is the name of the company but is namely called "Forward Motion"
-Our orthotics are $99. We don't charge for shipping or taxes. $99 is the amount you will pay.
+Custom orthotics are $99. Braces are $229–$599. Prefabs are $9.95–$29.95. Free two-way shipping on custom orders. No taxes. See PRODUCTS.md for the full price list.
 -Our standard turnaround time is 2 to 2.5 weeks to once it arrives.
 -We have a 6 month adjustment policy. Any device if wrong or causes issues can be remade correctly for the patient. 
 -Free shipping both ways
 -We accept plaster and biofoam casting. 
--Our most popular form of casting is scanning either a trudepth sensor with an iphone or an Ipad pro. Our system is also compatible with a Ipad and Structure sensor system.
+-Our most popular form of casting is scanning with an iPhone or iPad Pro. We also support iPad + Structure Sensor.
 -Most of our doctors scan it allows for faster turnaround.
 -We have Cpeds on staff and techs with more than 40 years of experience available for concultations.
 -We have a 48hr window to change the order with no charge. After 48hrs you can make a change but it costs $35.

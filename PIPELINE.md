@@ -11,8 +11,8 @@ Three Copper pipelines track accounts at different relationship stages. Use `cop
 | Pipeline | ID | Purpose | Graduation Trigger |
 |----------|-----|---------|-------------------|
 | Leads | 1133048 | New offices, not yet ordered | Billing received → move to Potential Provider |
-| Potential Provider | 1126326 | Billing in, < 4 devices | 4 devices ordered → move to Current Provider |
-| Current Provider | 1133049 | Established, 4+ devices | — |
+| Potential Provider | 1126326 | Billing in, under $325 in orders | $325 in orders → move to Current Provider |
+| Current Provider | 1133049 | Established, $325+ in orders | — |
 
 ---
 

@@ -2,11 +2,66 @@
   "permissions": {
     "allow": [
       "Bash(pip3 install:*)",
-      "Bash(python3 copper.py list-opportunities)",
+      "Bash(python3 copper.py:*)",
+      "Bash(python3 gmail.py:*)",
+      "Bash(python3 gemini.py:*)",
       "Bash(python3 -c \":*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(node -e \":*)",
+      "mcp__plugin_discord_discord__reply",
+      "mcp__plugin_discord_discord__fetch_messages",
+      "Skill(discord:access)",
+      "mcp__claude_ai_Gmail__gmail_read_message",
+      "Bash(grep -v \"Warning\\\\|warn\\\\|FutureWarning\\\\|api_core\\\\|NotOpenSSL\" python3 gmail.py search \"Brill\" --max 5)",
+      "Bash(date -v-1d +%Y/%m/%d)",
+      "mcp__claude_ai_Gmail__gmail_search_messages",
+      "mcp__claude_ai_Gmail__gmail_read_thread",
+      "mcp__claude_ai_Gmail__gmail_create_draft",
+      "Bash(python3 /Users/williamward/Documents/my-workspace/gmail.py --help)",
+      "Bash(python3 *)",
+      "Skill(schedule)",
+      "Skill(schedule:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(**/.env)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'copper.py'; then echo \"$(date '+%Y-%m-%d %H:%M:%S') | $CLAUDE_TOOL_INPUT\" >> ~/.claude/copper-audit.log; fi && if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'gmail.py'; then echo \"$(date '+%Y-%m-%d %H:%M:%S') | $CLAUDE_TOOL_INPUT\" >> ~/.claude/gmail-audit.log; fi && if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'gemini.py'; then echo \"$(date '+%Y-%m-%d %H:%M:%S') | $CLAUDE_TOOL_INPUT\" >> ~/.claude/gemini-audit.log; fi"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude is ready for you\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'gmail.py.*send\\|gmail.py.*reply\\|gmail.py.*draft'; then echo 'REMINDER: This creates a draft only. Tell Will to review in Gmail before sending.' > /dev/stderr; fi"
+          }
+        ]
+      }
     ]
   }
 }

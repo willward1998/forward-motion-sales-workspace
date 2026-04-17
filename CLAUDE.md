@@ -1,54 +1,42 @@
-# Identity
+# CLAUDE.md
 
-You are helping Will, an account manager and sales rep
-for Forward Motion Medical — a custom orthotics lab that serves podiatrist offices.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Identity
+
+You are helping Will, an account manager and sales rep for Forward Motion Medical — a custom orthotics lab that serves podiatrist offices.
 
 ## Rules
-- Write in plain, clear language
-- Be concise — Will is often busy and on the go
-- Help simplify and automate repetitive sales and account tasks
-- Ask clarifying questions before making assumptions
-- When unsure, say so
+- Write in plain, clear language. Be concise — Will is often busy and on the go.
+- Help simplify and automate repetitive sales and account tasks.
+- Ask clarifying questions before making assumptions. When unsure, say so.
 
-## Knowledge Files
+## Architecture
 
-Read these files when relevant to the task:
+Sales workspace with two layers:
 
-| File | What's in it |
-|------|-------------|
-| REFERENCES.md | Pricing, objections, tone guide, useful links |
-| CONTEXT.md | Role description and success criteria |
-| PRODUCTS.md | Orthotic types, casting methods, ordering process, pricing |
-| ONBOARDING.md | 8-stage onboarding journey, stage criteria, checklists |
-| EMAILS.md | Email templates for outreach, follow-up, objections, orders |
-| ACCOUNTS.md | Account profile schema, tier definitions, CRM conventions |
-| COMPANY.md | Lab overview, SOPs, differentiators, competitors, escalation contacts |
-| PIPELINE.md | Pipeline guide — stage IDs, quick-reference commands, weekly focus |
-| TASKS.md | Recurring cadence and one-off task log |
+1. **CLI scripts** (`copper.py`, `gmail.py`, `gemini.py`) — Python tools connecting to external APIs. Subcommand-based CLIs dispatched through `main()`. Run `python3 <script>.py` with no args to see available commands.
+2. **Knowledge files** (`.md` files in root) — Reference docs for products, pricing, onboarding, email templates, and account conventions.
 
-## Copper CRM Integration
+**Key workflow:** Look up account in Copper → check stage in ONBOARDING.md → draft outreach via Gmail → tell Will to review in Gmail.
 
-Will uses Copper CRM (copper.com). A CLI script at `copper.py` connects to the Copper API.
+**Product lookups:** Specs/HCPCS → `ForwardMotion_Product_AI/clean_catalog.txt`. Pricing/policies → `PRODUCTS.md`.
 
-**Copper is the source of truth for account data.** Don't rely on static file contents for contact info, stages, or last-touch dates. Query Copper live using the commands below.
+## Critical Behaviors
 
-**Before drafting outreach:** Use `copper.py` to look up the account's current stage, last contact date, and contact details. Check ONBOARDING.md for what action to take at that stage.
+- **Copper is the source of truth** for account data. Always query live — don't rely on static files for contacts, stages, or dates.
+- **Gmail `send` creates drafts only** — nothing is auto-sent. Never read email attachment contents. Attach files from `attachments/` via `--attach <filename>`.
+- **Before outreach:** Look up the account in Copper, check ONBOARDING.md for the right action at their stage, then draft.
+- **Branding is opt-in.** Only read BRANDING.md and apply FM brand style when Will specifically asks. Don't apply by default.
+- **Product imagery:** Before generating images of FM products, read the product's entry in `PRODUCT_VISUALS.md` and reference photos in `images/Product Images/` so the output matches the real device.
 
-**Common commands:**
+## Setup
+
 ```bash
-python copper.py search-contact "Dr. Smith"
-python copper.py search-company "Tampa Podiatry"
-python copper.py list-opportunities
-python copper.py update-stage <opportunity_id> <stage_id>
-python copper.py log-activity person <id> "Called re: first order — going well, placing another soon"
-python copper.py create-task "Follow up on demo" person <id> 2026-03-27
-python copper.py list-tasks --open-only
-python copper.py list-stages <pipeline_id>
+pip3 install -r requirements.txt
+pip3 install google-auth google-auth-oauthlib google-api-python-client
 ```
 
-**Filtering by stage:**
-```bash
-python copper.py list-opportunities --stage 5087437   # Billing Received
-python copper.py list-opportunities --stage 5087466   # New Provider
-```
-See PIPELINE.md for the full stage ID reference table.
+- Copper: `COPPER_API_KEY` and `COPPER_USER_EMAIL` in `.env`
+- Gmail: OAuth keys and token in `~/.gmail-mcp/`
+- Gemini: `GEMINI_API_KEY` in `.env`

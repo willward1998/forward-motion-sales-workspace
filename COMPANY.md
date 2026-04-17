@@ -3,7 +3,7 @@
 ## Lab Overview
 - **Full Name:** Forward Motion Medical (commonly called "Forward Motion")
 - **Website:** https://fdmotion.com
-- **What we do:** Custom orthotics lab serving podiatrist offices
+- **What we do:** Custom orthotics, AFO braces, and prefabricated orthotics lab serving podiatrist offices
 - **Who we serve:** Podiatrist offices (B2B — doctors are the clients, not patients)
 - **Staff:** CPed (Certified Pedorthist) and technicians with 40+ years of experience available for consultations
 - **Location:** Washington, Utah. 914 South 100 East, Washington, UT 84780
@@ -15,7 +15,8 @@
 
 | Differentiator | Detail |
 |---|---|
-| **Flat pricing** | $99 per orthotic — no shipping, no taxes, no surprises |
+| **Comprehensive product line** | 18+ custom orthotics, 20 condition-specific devices, 11 AFO braces, 20+ prefabs |
+| **Flat pricing** | Custom orthotics $79–$99, braces $229–$599, prefabs $9.95–$29.95 |
 | **Free two-way shipping** | We cover shipping to and from the lab |
 | **Multiple casting methods** | Plaster, biofoam, and 3D scanning all accepted |
 | **Free scanning app** | Forward Motion app works on iPhone (TrueDepth) and iPad — free to download |
@@ -105,8 +106,8 @@ Additional differentiators to add:
 
 ## Pricing Strategy
 
-- **Do not negotiate on per-unit price.** $99 is the price.
-- Lead with value: free two-way shipping, no taxes, 6-month adjustment policy — these reduce the true cost
+- **Do not negotiate on per-unit price.** Custom orthotics are $79–$99 (most are $99). Braces and prefabs have their own price points — see PRODUCTS.md for the full breakdown.
+- Lead with value: free two-way shipping on customs, no taxes, 6-month adjustment policy — these reduce the true cost
 - [PLACEHOLDER — are there any approved concessions? e.g., waived change fee for a new account's first order?]
 - Refurbishment is a separate revenue line — bring it up when a doctor mentions worn-out devices
 

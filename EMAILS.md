@@ -8,19 +8,36 @@ Before drafting any email, check PIPELINE.md for the office's current onboarding
 
 ## Cold Outreach
 
-### New Podiatrist Office (No Existing Relationship)
+### First Cold Email (bait and switch to get a response)
 
-**Subject:** Custom orthotics for [Practice Name] — worth a quick look
+**Subject**
 
-Hi [Dr. Last Name / Contact Name],
+Hi,
 
-My name is Will Ward, and I work with Forward Motion Medical, a custom orthotics lab that partners with podiatry offices across [region].
+Quick question. Do you do custom insoles? If so how long does it take to get them back?
+
+Thanks,
+
+### Response email to the bake and switch
+
+Good to know. I actually represent a custom orthotics lab called Forward Motion. It's likely I can cut your turnaround time and decrease your cost on orthotics. Who are you currently using as your custom orthotic manufacturer?
+
+Thanks,
+
+
+### New Podiatrist Office Information dump (No Existing Relationship)
+
+**Subject:** Custom orthotics
+
+Hi [Dr. Last Name],
+
+My name is Will Ward, and I work with Forward Motion Medical, a custom orthotics lab.
 
 We make custom orthotics for $99 flat — no shipping fees, no taxes, nothing hidden. Turnaround is 2 to 2.5 weeks, and we offer free two-way shipping.
 
 Most of our doctors scan their patients' feet using a free app on their iPhone or iPad, which is quick and easy for the office. We also accept plaster and biofoam if that's what you prefer.
 
-Would it make sense to connect for a few minutes? I'd love to learn more about your practice and see if we'd be a good fit.
+Would it make sense to connect for a few minutes? I'd love to learn more about your practice and see if we'd be a good fit. Is there a time in the week that usually works best to call?
 
 [Will's Calendar link: https://calendar.app.google/pijPpW5TfUUdCRXA9]
 
@@ -53,9 +70,9 @@ Will Ward
 
 Hi [Name],
 
-It was great connecting at [Event Name]. I wanted to follow up and share a bit more about Forward Motion Medical.
+It was great connecting at [Event Name]. I wanted to follow up and give you a brief summary of the things we offer at Forward Motion.
 
-We specialize in custom orthotics for podiatry practices — $99 flat, free two-way shipping, 2–2.5 week turnaround, and a 6-month adjustment policy. Most of our offices use our free scanning app on an iPhone or iPad, which makes the whole process really smooth for the staff.
+We specialize in custom orthotics — $99 flat, free two-way shipping, 2–2.5 week turnaround, and a 6-month adjustment policy. We remake them from srcatch so there is no need to send them back. Most of our offices use our free scanning app on an iPhone or iPad Pro, which makes the whole process really smooth for the staff.
 
 Would love to set up a time to chat and learn more about your practice. Here's my calendar if that's easier: https://calendar.app.google/pijPpW5TfUUdCRXA9
 
@@ -72,9 +89,9 @@ Will Ward
 
 Hi [Name],
 
-Just wanted to make sure my last note didn't get buried. I reached out about custom orthotics from Forward Motion Medical — $99 per device, free shipping, and a quick turnaround.
+Just wanted to make sure my last note didn't get buried and move it to the top of your inbox. I reached out about custom orthotics from Forward Motion — $99 per device, free shipping, 6 month adjustment policy, and a quick turnaround.
 
-If now isn't a good time, no problem at all. Just let me know and I'll circle back when it makes more sense.
+Would you like to find a time to walk through all of the information again with your team or would you like me to send you some samples.
 
 Thanks,
 Will
@@ -87,11 +104,9 @@ Will
 
 Hi [Name],
 
-I'll keep this short — I know you're busy. I work with Forward Motion Medical and I think we could make your orthotic workflow easier and more affordable.
+I'll keep this short — I know you're busy. I work with Forward Motion and I think we could make your orthotic workflow easier and more affordable.
 
 Worth a 10-minute call? Here's my calendar: https://calendar.app.google/pijPpW5TfUUdCRXA9
-
-If the timing isn't right, no worries — I'll check back in a few weeks.
 
 Will
 
@@ -105,7 +120,7 @@ Hi [Name],
 
 Wanted to check in after we went through [the sample / the scanning demo / the product overview]. Did you get a chance to take a look?
 
-Happy to answer any questions from the team. When you're ready, placing a first order is straightforward through the doctor portal — I can walk you through it if that helps.
+Happy to answer any questions if any came up after we spoke. When you're ready, placing a first order is straightforward through the app — I can walk you through it if that helps.
 
 Let me know what you're thinking.
 
@@ -117,29 +132,11 @@ Will
 
 **Subject:** How did the orthotic turn out?
 
-Hi [Name],
+Hi Dr. [Last_Name],
 
-The order for [patient / practice] should have arrived by now — wanted to check in and see how it turned out.
+Your order should have arrived by now — wanted to check in and see how it turned out.
 
-If everything looked good, great — I'm glad we could help. If anything needs adjusting, just let me know and we'll take care of it. That's what the 6-month adjustment policy is for.
-
-Ready whenever you want to place another one.
-
-Will
-
----
-
-### After Second Order
-
-**Subject:** Thanks for the second order
-
-Hi [Name],
-
-Thanks for the second order! Really appreciate the trust.
-
-Quick note — if you haven't tried scanning yet, it's worth checking out. Most of our doctors use the free Forward Motion app on their iPhone or iPad and it tends to speed things up. Here's a short video if you want to see how it works: https://youtu.be/8JfNTzzXtqI
-
-Happy to help set it up if you want to give it a shot.
+If everything looked good, great — I'm glad we could help. Is there anything you would like to see done differently? 
 
 Will
 
@@ -153,11 +150,9 @@ Will
 
 Hi [Name],
 
-It's been a bit since we've connected and I just wanted to check in. Hope things are going well at [Practice Name].
+It's been a bit since we've connected and I just wanted to check in. Hope things are going well.
 
-We're still here whenever you're ready to place an order — $99, free shipping, 2–2.5 weeks. And if anything changed with what you need, I'm happy to talk through it.
-
-No pressure, just wanted to stay in touch.
+No pressure, just wanted to stay in touch. Is there anything I can do for you?
 
 Will
 
@@ -203,7 +198,7 @@ Hi [Name],
 
 That makes complete sense, and I don't want to push. Happy relationships with a lab are hard to come by.
 
-I'll just leave this here in case things ever change: Forward Motion is $99 per orthotic, free two-way shipping, no taxes, 2–2.5-week turnaround, and a 6-month adjustment policy. If your current lab ever falls short, we're easy to try — no contracts, no commitments.
+I'll just leave this here in case things ever change: Forward Motion is $99 per orthotic, free two-way shipping, 2–2.5-week turnaround, and a 6-month adjustment policy, not returns necesary. If your current lab ever falls short or starts to stack off, we're easy to try — no contracts, no commitments.
 
 Feel free to reach out anytime.
 
@@ -217,7 +212,7 @@ Will
 
 Hi [Name],
 
-Fair concern, and I hear it a lot. Our standard turnaround is 2 to 2.5 weeks from when the order arrives at the lab.
+Fair concern. Our standard turnaround is 2 to 2.5 weeks from when the order arrives at the lab.
 
 The biggest thing that speeds it up: scanning. Most of our doctors use the free Forward Motion app on an iPhone or iPad and it cuts out the shipping time for casts entirely. If you're not scanning yet, it's worth trying.
 
@@ -267,8 +262,6 @@ Hi [Name],
 
 Just wanted to confirm we received the order. You can expect it back in 2 to 2.5 weeks.
 
-If anything needs to change in the next 48 hours, let me know and I'll take care of it at no charge. After that there's a $35 change fee, so flag it soon if needed.
-
 Thanks again — I'll be in touch when it's on its way.
 
 Will
@@ -281,7 +274,7 @@ Will
 
 Hi [Name],
 
-Got it — thanks for letting me know. We'll take care of the adjustment on this one.
+Got it — thanks for letting me know. We'll take care of the adjustment.
 
 This is exactly what the 6-month policy is for. I'll follow up once it's been processed and let you know the timeline.
 

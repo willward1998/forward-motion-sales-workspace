@@ -73,7 +73,7 @@ See ONBOARDING.md for full stage definitions and PIPELINE.md for stage IDs.
 
 **Current Provider Pipeline (ID: 1133049):** New Provider → Active/Stable → Growth Focused → At Risk/Declining → Inactive
 
-> Graduation trigger: 4 devices ordered = move from Potential Provider → Current Provider (Active/Stable)
+> Graduation trigger: $325 in orders = move from Potential Provider → Current Provider (New Provider)
 
 ### Tag Conventions
 Tags observed in Copper data: `will's leads`, `will's lead list`
@@ -87,6 +87,6 @@ Tags observed in Copper data: `will's leads`, `will's lead list`
 ### Task Cadence
 - Leads: Follow up within 3–5 business days of last touch
 - Potential Provider: Follow up within 7–14 days; flag stalled accounts immediately
-- Current Provider (Active/Growth): Touch every 2–4 weeks
+- Current Provider (Active/Growth): Touch every 6 weeks
 - Current Provider (At Risk): Follow up within 7 days
 - Current Provider (Inactive): One re-engagement attempt; 90-day reminder if no response

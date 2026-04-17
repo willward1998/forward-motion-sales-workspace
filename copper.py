@@ -8,11 +8,13 @@ Commands:
   get-contact <id>
   search-company <name>
   get-company <id>
+  list-people [--tag <tag>]
   list-opportunities [--stage <stage_id>]
   update-stage <opportunity_id> <pipeline_stage_id>
   log-activity <entity_type> <entity_id> "<note>"
   create-task "<title>" <entity_type> <entity_id> <due_date YYYY-MM-DD>
-  list-tasks [--open-only]
+  create-contact "<first> <last>" "<email>" "<phone>" "<company>" "<title>"
+  list-tasks [--open-only] [--mine] [--assignee <user_id>]
   list-stages <pipeline_id>
 """
 
@@ -80,7 +82,73 @@ def fmt_date(ts):
         return str(ts)
 
 
+# --- LEADS ---
+
+def list_leads(assignee_id=None):
+    body = {"page_size": 25, "sort_by": "name"}
+    if assignee_id:
+        body["assignee_ids"] = [int(assignee_id)]
+    data = req("POST", "/leads/search", body)
+    results = data if isinstance(data, list) else []
+
+    if not results:
+        print("No leads found.")
+        return
+
+    print(f"\nLeads ({len(results)} results):\n")
+    for l in results:
+        print(f"  {l.get('name', '—')}  [ID: {l.get('id')}]")
+        print(f"    Email:      {fmt_emails(l.get('emails', []))}")
+        print(f"    Phone:      {fmt_phones(l.get('phone_numbers', []))}")
+        print(f"    Company:    {l.get('company_name', '—')}")
+        print(f"    Title:      {l.get('title', '—')}")
+        print(f"    Status:     {l.get('status', '—')}")
+        print(f"    Assignee:   {l.get('assignee_id', '—')}")
+        print(f"    Created:    {fmt_date(l.get('date_created'))}")
+        print()
+
+
+def list_lead_assignees():
+    """List all users in the Copper account so you can filter leads by assignee."""
+    data = req("POST", "/users/search", {})
+    results = data if isinstance(data, list) else []
+
+    if not results:
+        print("No users found.")
+        return
+
+    print(f"\nCopper Users ({len(results)}):\n")
+    for u in results:
+        print(f"  {u.get('name', '—')}  [User ID: {u.get('id')}]  Email: {u.get('email', '—')}")
+
+
 # --- CONTACTS / PEOPLE ---
+
+def list_people(tag=None):
+    body = {"page_size": 25, "sort_by": "name"}
+    if tag:
+        body["tags"] = [tag]
+    data = req("POST", "/people/search", body)
+    results = data if isinstance(data, list) else []
+
+    if not results:
+        tag_msg = f' with tag "{tag}"' if tag else ''
+        print(f"No people found{tag_msg}.")
+        return
+
+    header = f'People tagged "{tag}"' if tag else 'All People'
+    print(f"\n{header} ({len(results)} results):\n")
+    for p in results:
+        print(f"  {p.get('name', '—')}  [ID: {p.get('id')}]")
+        print(f"    Email:   {fmt_emails(p.get('emails', []))}")
+        print(f"    Phone:   {fmt_phones(p.get('phone_numbers', []))}")
+        print(f"    Company: {p.get('company_name', '—')}")
+        print(f"    Title:   {p.get('title', '—')}")
+        tags = p.get('tags', [])
+        if tags:
+            print(f"    Tags:    {', '.join(tags)}")
+        print()
+
 
 def search_contact(query):
     # Try email search first, then name search
@@ -162,9 +230,9 @@ def get_stage_lookup():
 
 
 def list_opportunities(stage_id=None):
-    body = {"page_size": 25, "sort_by": "name"}
+    body = {"page_size": 200, "sort_by": "name"}
     if stage_id:
-        body["pipeline_stage_id"] = int(stage_id)
+        body["pipeline_stage_ids"] = [int(stage_id)]
     data = req("POST", "/opportunities/search", body)
     results = data if isinstance(data, list) else []
 
@@ -189,6 +257,31 @@ def list_opportunities(stage_id=None):
 def update_stage(opportunity_id, pipeline_stage_id):
     req("PUT", f"/opportunities/{opportunity_id}", {"pipeline_stage_id": int(pipeline_stage_id)})
     print(f"Opportunity {opportunity_id} moved to stage {pipeline_stage_id}.")
+
+
+# --- CREATE CONTACT ---
+
+def create_contact(name, email=None, phone=None, company=None, title=None):
+    body = {"name": name}
+    if email:
+        body["emails"] = [{"email": email, "category": "work"}]
+    if phone:
+        body["phone_numbers"] = [{"number": phone, "category": "work"}]
+    if company:
+        body["company_name"] = company
+    if title:
+        body["title"] = title
+    result = req("POST", "/people", body)
+    print(f"Contact created (ID: {result.get('id', '?')}): {name}")
+    if email:
+        print(f"  Email:   {email}")
+    if phone:
+        print(f"  Phone:   {phone}")
+    if company:
+        print(f"  Company: {company}")
+    if title:
+        print(f"  Title:   {title}")
+    return result.get("id")
 
 
 # --- ACTIVITIES ---
@@ -228,10 +321,31 @@ def create_task(title, entity_type, entity_id, due_date_str):
     print(f"Task created (ID: {result.get('id', '?')}): {title}  Due: {due_date_str}")
 
 
-def list_tasks(open_only=False):
-    body = {"page_size": 25, "sort_by": "due_date", "sort_direction": "asc"}
+def resolve_entity_name(entity_type, entity_id):
+    if not entity_type or not entity_id:
+        return None
+    type_to_path = {
+        "person": f"/people/{entity_id}",
+        "lead": f"/leads/{entity_id}",
+        "company": f"/companies/{entity_id}",
+        "opportunity": f"/opportunities/{entity_id}",
+    }
+    path = type_to_path.get(entity_type)
+    if not path:
+        return None
+    try:
+        data = req("GET", path)
+        return data.get("name") or data.get("full_name")
+    except Exception:
+        return None
+
+
+def list_tasks(open_only=False, assignee_id=None):
+    body = {"page_size": 200, "sort_by": "due_date", "sort_direction": "asc"}
     if open_only:
         body["statuses"] = ["Open"]
+    if assignee_id:
+        body["assignee_ids"] = [int(assignee_id)]
     data = req("POST", "/tasks/search", body)
     results = data if isinstance(data, list) else []
 
@@ -241,10 +355,19 @@ def list_tasks(open_only=False):
 
     for t in results:
         related = t.get("related_resource", {}) or {}
+        entity_type = related.get("type")
+        entity_id = related.get("id")
+        name = resolve_entity_name(entity_type, entity_id)
+        related_str = f"{entity_type} — {name} (ID: {entity_id})" if name else f"{entity_type} {entity_id}" if entity_type else "—"
         print(f"\nTask: {t.get('name', '—')}  [ID: {t.get('id')}]")
         print(f"  Status:   {t.get('status', '—')}")
         print(f"  Due:      {fmt_date(t.get('due_date'))}")
-        print(f"  Related:  {related.get('type', '—')} {related.get('id', '—')}")
+        print(f"  Related:  {related_str}")
+
+
+def close_task(task_id):
+    req("PUT", f"/tasks/{task_id}", {"status": "Completed"})
+    print(f"Task {task_id} closed.")
 
 
 # --- PIPELINE STAGES ---
@@ -272,7 +395,24 @@ def main():
     cmd = sys.argv[1]
     args = sys.argv[2:]
 
-    if cmd == "search-contact":
+    if cmd == "list-leads":
+        assignee_id = None
+        if "--assignee" in args:
+            idx = args.index("--assignee")
+            assignee_id = args[idx + 1]
+        list_leads(assignee_id)
+
+    elif cmd == "list-users":
+        list_lead_assignees()
+
+    elif cmd == "list-people":
+        tag = None
+        if "--tag" in args:
+            idx = args.index("--tag")
+            tag = args[idx + 1]
+        list_people(tag)
+
+    elif cmd == "search-contact":
         if not args:
             print("Usage: python copper.py search-contact <name_or_email>")
             sys.exit(1)
@@ -295,6 +435,17 @@ def main():
             print("Usage: python copper.py get-company <id>")
             sys.exit(1)
         get_company(args[0])
+
+    elif cmd == "create-contact":
+        if not args:
+            print('Usage: python copper.py create-contact "<name>" "<email>" "<phone>" "<company>" "<title>"')
+            sys.exit(1)
+        name = args[0]
+        email = args[1] if len(args) > 1 else None
+        phone = args[2] if len(args) > 2 else None
+        company = args[3] if len(args) > 3 else None
+        title = args[4] if len(args) > 4 else None
+        create_contact(name, email, phone, company, title)
 
     elif cmd == "list-opportunities":
         stage_id = None
@@ -323,7 +474,21 @@ def main():
 
     elif cmd == "list-tasks":
         open_only = "--open-only" in args
-        list_tasks(open_only)
+        assignee_id = None
+        if "--mine" in args:
+            me = req("GET", "/users/me")
+            assignee_id = me.get("id")
+        elif "--assignee" in args:
+            idx = args.index("--assignee")
+            if idx + 1 < len(args):
+                assignee_id = args[idx + 1]
+        list_tasks(open_only, assignee_id)
+
+    elif cmd == "close-task":
+        if not args:
+            print("Usage: python copper.py close-task <task_id>")
+            sys.exit(1)
+        close_task(args[0])
 
     elif cmd == "list-stages":
         if not args:
